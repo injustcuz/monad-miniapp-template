@@ -1,35 +1,23 @@
-import { Metadata } from "next";
-import App from "@/components/pages/app";
-import { APP_URL } from "@/lib/constants";
+import ExerciseForm from '@/components/ExerciseForm';
+import WorkoutHistory from '@/components/WorkoutHistory';
+import UserProfile from '@/components/UserProfile';
+import WalletConnect from '@/components/WalletConnect';
+import Link from 'next/link';
 
-const frame = {
-  version: "next",
-  imageUrl: `${APP_URL}/images/feed.png`,
-  button: {
-    title: "Launch Template",
-    action: {
-      type: "launch_frame",
-      name: "Monad Farcaster MiniApp Template",
-      url: APP_URL,
-      splashImageUrl: `${APP_URL}/images/splash.png`,
-      splashBackgroundColor: "#f7f7f7",
-    },
-  },
-};
-
-export async function generateMetadata(): Promise<Metadata> {
-  return {
-    title: "Monad Farcaster MiniApp Template",
-    openGraph: {
-      title: "Monad Farcaster MiniApp Template",
-      description: "A template for building mini-apps on Farcaster and Monad",
-    },
-    other: {
-      "fc:frame": JSON.stringify(frame),
-    },
-  };
-}
 
 export default function Home() {
-  return <App />;
+  return (
+    <main className="max-w-md mx-auto my-10">
+      <nav className="flex justify-center gap-4 mb-8">
+        <Link href="/" className="text-blue-500 font-semibold">🏠 Home</Link>
+        <Link href="/store" className="text-blue-500 font-semibold">🛒 Store</Link>
+      </nav>
+
+      <h1 className="text-2xl font-bold text-center">My Fitness App</h1>
+      <ExerciseForm />
+      <WorkoutHistory />
+      <UserProfile />
+      <WalletConnect />
+    </main>
+  );
 }
