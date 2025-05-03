@@ -1,6 +1,6 @@
 'use client';
 
-import { sendCryptoPayment } from '@/lib/payments';
+import { sendCryptoPayment } from '../../lib/payments';
 
 export default function StorePage() {
 
